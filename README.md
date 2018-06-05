@@ -28,7 +28,7 @@ You can check the status of computation by running:
 ### 4. Merge Feature Files
 Once the computation has finished, you can merge the feature files.
 <pre>
-./merge.sh
+	./merge.sh
 </pre>
 
 
