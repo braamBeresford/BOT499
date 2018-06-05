@@ -16,6 +16,7 @@ def calculate(inputFileName, outputFileName):
 	per_C_G = []
 	per_stop_codon = []
 	per_A_36 = []
+	TATA_present = []
 
 	with open(inputFileName, 'r') as file:
 		data = file.readlines()
@@ -23,6 +24,7 @@ def calculate(inputFileName, outputFileName):
 			stop_codon = 0
 			C_G = 0
 			letters = 0
+			TATA =0
 			for line in seq:
 				# print(c)
 				if ">" not in line and "unavailable" not in line:
@@ -36,19 +38,27 @@ def calculate(inputFileName, outputFileName):
 			percent_C_G = float(C_G)/letters * 100
 			stop_codon += seq.count("TAG")
 			stop_codon += seq.count("TAA")
-			stop_codon ++ seq.count("TGA")
+			stop_codon += seq.count("TGA")
+			TATA = seq.count("TATAAA")
+
 
 			per_stop_codon.append((stop_codon/float(letters))*100)#Calculate and store percent TAG
 			per_C_G.append(percent_C_G)
 			per_A_36.append(poly_A(seq))
+			if(TATA > 0):
+				TATA_present.append(1);
+			else:
+				TATA_present.append(0);
+
 
 
 
 	with open(outputFileName, "w") as out:
-		out.write("Seq_id\tC_G\tper_stop_codon\tper_A_36\n")
+		out.write("Seq_id\tC_G\tper_stop_codon\tper_A_36\tTATA\n")
 		for i in range(0, len(data)):
 				out.write("Seq%d\t"% i)
-				out.write("%s\t%s\t%s"%(per_C_G[i], per_stop_codon[i], per_A_36[i]))
+				# out.write("%s\t%s\t%s\t%s"%(per_C_G[i], per_stop_codon[i], per_A_36[i], TATA_present[i]))
+				out.write("%s\t%s\t%s\t%s"%(per_C_G[i], per_stop_codon[i], per_A_36[i], TATA_present[i]))
 				out.write("\n")
 
 
