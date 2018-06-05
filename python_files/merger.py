@@ -22,12 +22,12 @@ def join_files(directory, output_file):
     join all input_files into one output_file
     '''
     # Files in directory
-    print("files in the directory:")
     input_files = []
     for file in os.listdir(directory):
         file = directory + "/" + file
-        print(file)
         input_files.append(file)
+
+    input_files.sort()
 
     print("\nwriting to :"+output_file)
     output_file = open(output_file, "w")
