@@ -14,7 +14,7 @@ def calculate(inputFileName, outputFileName):
 	C_G = 0
 	total_letters = 0
 	per_C_G = []
-	per_TAG = []
+	per_stop_codon = []
 	per_A_36 = []
 
 	with open(inputFileName, 'r') as file:
@@ -38,17 +38,17 @@ def calculate(inputFileName, outputFileName):
 			stop_codon += seq.count("TAA")
 			stop_codon ++ seq.count("TGA")
 
-			per_TAG.append((stop_codon/float(letters))*100)#Calculate and store percent TAG
+			per_stop_codon.append((stop_codon/float(letters))*100)#Calculate and store percent TAG
 			per_C_G.append(percent_C_G)
 			per_A_36.append(poly_A(seq))
 
 
 
 	with open(outputFileName, "w") as out:
-		out.write("Seq_id\tC_G\tTAG\tper_A_36\n")
+		out.write("Seq_id\tC_G\tper_stop_codon\tper_A_36\n")
 		for i in range(0, len(data)):
 				out.write("Seq%d\t"% i)
-				out.write("%s\t%s\t%s"%(per_C_G[i], per_TAG[i], per_A_36[i]))
+				out.write("%s\t%s\t%s"%(per_C_G[i], per_stop_codon[i], per_A_36[i]))
 				out.write("\n")
 
 

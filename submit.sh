@@ -1,1 +1,1 @@
-qsub exons.q
+qsub test.q

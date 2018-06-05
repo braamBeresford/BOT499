@@ -1,11 +1,7 @@
-#!/bin/bash
-#$ -S /bin/bash
-#$ -V
-#$ -N TEST_BERESFORD
-#$ -cwd
-#$ -o test_beresford.log
-#$ -j y
-#$ -t 1-10:1
+set R_LIBS $R_LIBS\:/local/cluster/R_Packages/3.3
 
-./computerFeatures.sh $SGE_TASK_ID data/features/
+class1Examples=./data/features/features.merged.1
+class2Examples=./data/features/features.merged.2
 
+
+Rscript quick_svm.R $class1Examples $class2Examples
