@@ -1,3 +1,4 @@
+#!/bin/bash
 set R_LIBS $R_LIBS\:/local/cluster/R_Packages/3.3
 
 class1Examples=./data/features/features.merged.1

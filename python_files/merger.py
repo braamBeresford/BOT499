@@ -15,7 +15,6 @@ def usage_str():
 def decorator(n):
     '''
     '''
-    print("*"*n)
 
 def join_files(directory, output_file):
     '''
@@ -29,7 +28,6 @@ def join_files(directory, output_file):
 
     input_files.sort()
 
-    print("\nwriting to :"+output_file)
     output_file = open(output_file, "w")
 
     write_header = False

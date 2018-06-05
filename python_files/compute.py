@@ -26,8 +26,6 @@ def calculate(inputFileName, outputFileName):
 			letters = 0
 			TATA =0
 			for line in seq:
-				# print(c)
-				if ">" not in line and "unavailable" not in line:
 					for letter in line:
 						if letter.lower() == "c" or letter.lower() == "g" :
 							C_G += 1
@@ -53,12 +51,12 @@ def calculate(inputFileName, outputFileName):
 
 
 	with open(outputFileName, "w") as out:
-		# out.write("Seq_id\tC_G\tper_stop_codon\tper_A_36\tTATA\n")
-		out.write("Seq_id\tG_C\tTATA\n")
+		out.write("Seq_id\tC_G\tper_stop_codon\tper_A_36\tTATA\n")
+		# out.write("Seq_id\tG_C\tTATA\n")
 		for i in range(0, len(data)):
 				out.write("Seq%d\t"% i)
-				# out.write("%s\t%s\t%s\t%s"%(per_C_G[i], per_stop_codon[i], per_A_36[i], TATA_present[i]))
-				out.write("%s\t%s"%(per_C_G[i], TATA_present[i]))
+				out.write("%s\t%s\t%s\t%s"%(per_C_G[i], per_stop_codon[i], per_A_36[i], TATA_present[i]))
+				# out.write("%s\t%s"%(per_C_G[i], TATA_present[i]))
 				out.write("\n")
 
 
