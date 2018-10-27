@@ -1,6 +1,6 @@
 # BOT 499
 
-
+This is my final project for botany 499, computational biology.
 ## Step by Step
 
 ### 1. File format
